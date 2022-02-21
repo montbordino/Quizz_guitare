@@ -2,6 +2,12 @@
     --main-bg-color: rgb(250,60,80);
   }
 
+
+.valide
+{
+    background: rgb(86, 253, 20);
+}
+
 h1
 {
     background-color: var(--main-bg-color);
