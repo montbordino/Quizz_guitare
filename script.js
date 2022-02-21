@@ -3,11 +3,15 @@
 const FR = ['do', 're', 'mi', 'fa', 'sol', 'la', 'si'];
 const EN = ['c', 'd', 'e', 'f', 'g', 'a', 'b'];
 const NB_QUESTION = 10;
+
 let reponse = "";
+let question
 let reponseAttendue;
+
 let pays;
 let noteCode;
-let i = 1;
+
+let i = 0;
 
 function choisirPays()
 {
@@ -34,6 +38,20 @@ function verifV()
 {
     if(reponse == reponseAttendue){
         document.getElementById("q" + i).className = "valide";
+
+        i++;
+        if (i >= 10){
+            console.log("bien répondu bg !!");
+        }
+        else{
+            choisirPays(); //choisi un pays au hasard dans "pays"
+            noteCode = Math.floor(Math.random() * 7); // noteCode est mtn un nombre entre 0 et 6
+            defRep();
+        
+            question = "l'équivalent de " + pays[noteCode] + " : "; // chois du message
+            document.getElementById("q" + i).innerHTML = question; // affiche la question
+            reponse = "";
+        }
     } 
 }
 
@@ -43,7 +61,7 @@ function quizz()
     noteCode = Math.floor(Math.random() * 7); // noteCode est mtn un nombre entre 0 et 6
     defRep();
     
-    let question = "l'équivalent de " + pays[noteCode] + " : "; // chois du message
+    question = "l'équivalent de " + pays[noteCode] + " : "; // chois du message
     document.getElementById("q" + i).innerHTML = question; // affiche la question
 
     window.addEventListener('keydown', (event) => {
@@ -56,7 +74,6 @@ function quizz()
             reponse += event.key;
             document.getElementById("q" + i).innerHTML += event.key; // affiche la réponse
         }
-        console.log(reponse);
 
         verifV();
     })

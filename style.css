@@ -5,7 +5,10 @@
 
 .valide
 {
-    background: rgb(86, 253, 20);
+    background: rgb(150, 255, 109);
+    padding: 10px;
+    border-radius: 4px;
+    width: 200px;
 }
 
 h1
