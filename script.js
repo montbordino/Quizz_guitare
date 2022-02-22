@@ -5,11 +5,16 @@ const EN = ['c', 'd', 'e', 'f', 'g', 'a', 'b'];
 const NB_QUESTION = 10;
 
 let reponse = "";
-let question
+let question;
+let resultat;
 let reponseAttendue;
 
 let pays;
 let noteCode;
+
+let start
+let end;
+let temps;
 
 let i = 0;
 
@@ -41,7 +46,10 @@ function verifV()
 
         i++;
         if (i >= 10){
-            console.log("bien répondu bg !!");
+            end = Date.now();
+            temps = (end - start) / 1000;
+            resultat = "bien joué, votre temps :" + temps +"s";
+            document.getElementById("resultat").innerHTML = resultat;
         }
         else{
             choisirPays(); //choisi un pays au hasard dans "pays"
@@ -57,6 +65,7 @@ function verifV()
 
 function quizz()
 {
+    start = Date.now();
     choisirPays(); //choisi un pays au hasard dans "pays"
     noteCode = Math.floor(Math.random() * 7); // noteCode est mtn un nombre entre 0 et 6
     defRep();
@@ -73,7 +82,7 @@ function quizz()
         {
             reponse += event.key;
             document.getElementById("q" + i).innerHTML += event.key; // affiche la réponse
-        }
+        }   
 
         verifV();
     })
