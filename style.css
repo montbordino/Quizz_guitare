@@ -21,6 +21,15 @@ body
     grid-template-columns: 1fr 1fr;
 }
   
+.lecon
+{
+    background-color: var(--main-bg-color);
+    border-radius: 15px;
+    width: 50vh;
+    text-align: center;
+    padding: 5px;
+}
+
 .valide
 {
     background: var(--validation);
@@ -54,8 +63,9 @@ button:hover
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
-#resultat
+.affiché
 {
     border-radius: 4px;
     padding: 10px;
+    background-color: var(--main-bg-color);
 }

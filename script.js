@@ -61,6 +61,7 @@ function verifV() {
             temps = (end - start) / 1000;
             resultat = "bien joué, votre temps :" + temps + "s";
             document.getElementById("resultat").innerHTML = resultat;
+            document.getElementById("resultat").className = "affiché";
         }
         else {
             choisirPays(); //choisi un pays au hasard dans "pays"
@@ -81,6 +82,7 @@ function reinit() {
         document.getElementById("p" + n).className = "None";
 
         document.getElementById("resultat").innerHTML = "";
+        document.getElementById("resultat").className = "None";
     }
 }
 
