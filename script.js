@@ -4,7 +4,7 @@ const FR = ['do', 're', 'mi', 'fa', 'sol', 'la', 'si'];
 const EN = ['c', 'd', 'e', 'f', 'g', 'a', 'b'];
 const NB_QUESTION = 10;
 
-let reponse = "";
+let reponse;
 let question;
 let resultat;
 let reponseAttendue;
@@ -16,7 +16,22 @@ let start
 let end;
 let temps;
 
-let i = 0;
+let i;
+
+function traitTouche(e)
+{
+    if(e.key == "Backspace"){
+        reponse = reponse.slice(0, -1); // suprime la dernière lettre
+        document.getElementById("q" + i).innerHTML = question + reponse;
+    }
+    else
+    {
+        reponse += e.key;
+        document.getElementById("q" + i).innerHTML += e.key; // affiche la réponse
+    }   
+
+    verifV();
+}
 
 function choisirPays()
 {
@@ -50,6 +65,7 @@ function verifV()
             temps = (end - start) / 1000;
             resultat = "bien joué, votre temps :" + temps +"s";
             document.getElementById("resultat").innerHTML = resultat;
+            window.removeEventListener('keydown', traitTouche, false);
         }
         else{
             choisirPays(); //choisi un pays au hasard dans "pays"
@@ -65,7 +81,11 @@ function verifV()
 
 function quizz()
 {
+    //initialisation
     start = Date.now();
+    i = 0;
+    reponse = "";
+
     choisirPays(); //choisi un pays au hasard dans "pays"
     noteCode = Math.floor(Math.random() * 7); // noteCode est mtn un nombre entre 0 et 6
     defRep();
@@ -73,19 +93,7 @@ function quizz()
     question = "l'équivalent de " + pays[noteCode] + " : "; // chois du message
     document.getElementById("q" + i).innerHTML = question; // affiche la question
 
-    window.addEventListener('keydown', (event) => {
-        if(event.key == "Backspace"){
-            reponse = reponse.slice(0, -1);
-            document.getElementById("q" + i).innerHTML = question + reponse;
-        }
-        else
-        {
-            reponse += event.key;
-            document.getElementById("q" + i).innerHTML += event.key; // affiche la réponse
-        }   
-
-        verifV();
-    })
+    window.addEventListener('keydown', traitTouche, false);
 }
 
 /*
