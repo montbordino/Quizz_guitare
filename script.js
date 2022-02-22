@@ -1,5 +1,3 @@
-// bug avec entrer/espace
-
 const FR = ['do', 're', 'mi', 'fa', 'sol', 'la', 'si'];
 const EN = ['c', 'd', 'e', 'f', 'g', 'a', 'b'];
 const NB_QUESTION = 10;
@@ -8,6 +6,8 @@ let reponse;
 let question;
 let resultat;
 let reponseAttendue;
+
+let actif = false;
 
 let pays;
 let noteCode;
@@ -18,70 +18,75 @@ let temps;
 
 let i;
 
-function traitTouche(e)
-{
-    if(e.key == "Backspace"){
+function traitTouche(e) {
+    if (e.key == "Backspace") {
         reponse = reponse.slice(0, -1); // suprime la dernière lettre
-        document.getElementById("q" + i).innerHTML = question + reponse;
+        document.getElementById("p" + i).innerHTML = question + reponse;
     }
-    else
-    {
+    else {
         reponse += e.key;
-        document.getElementById("q" + i).innerHTML += e.key; // affiche la réponse
-    }   
+        document.getElementById("p" + i).innerHTML += e.key; // affiche la réponse
+    }
 
     verifV();
 }
 
-function choisirPays()
-{
+function choisirPays() {
     let paysCode = Math.floor(Math.random() * 2);
-    if(paysCode === 0){
+    if (paysCode === 0) {
         pays = FR;
     }
-    else{
+    else {
         pays = EN;
     }
 }
 
-function defRep()
-{
-    if(pays == FR){
+function defRep() {
+    if (pays == FR) {
         reponseAttendue = EN[noteCode];
     }
-    else{
+    else {
         reponseAttendue = FR[noteCode];
     }
 }
 
-function verifV()
-{
-    if(reponse == reponseAttendue){
-        document.getElementById("q" + i).className = "valide";
+function verifV() {
+    if (reponse == reponseAttendue) {
+        document.getElementById("p" + i).className = "valide";
 
         i++;
-        if (i >= 10){
+        if (i >= 10) {
             end = Date.now();
             temps = (end - start) / 1000;
-            resultat = "bien joué, votre temps :" + temps +"s";
+            resultat = "bien joué, votre temps :" + temps + "s";
             document.getElementById("resultat").innerHTML = resultat;
-            window.removeEventListener('keydown', traitTouche, false);
         }
-        else{
+        else {
             choisirPays(); //choisi un pays au hasard dans "pays"
             noteCode = Math.floor(Math.random() * 7); // noteCode est mtn un nombre entre 0 et 6
             defRep();
-        
-            question = "l'équivalent de " + pays[noteCode] + " : "; // chois du message
-            document.getElementById("q" + i).innerHTML = question; // affiche la question
+
+            question = "l'équivalent de " + pays[noteCode] + " : "; // choix du message
+            document.getElementById("p" + i).innerHTML = question; // affiche la question
             reponse = "";
         }
-    } 
+    }
 }
 
-function quizz()
-{
+function reinit() {
+    window.removeEventListener('keydown', traitTouche, false);
+    for (let n = NB_QUESTION - 1; n >= 0; n--) {
+        document.getElementById("p" + n).innerHTML = "";
+        document.getElementById("p" + n).className = "None";
+
+        document.getElementById("resultat").innerHTML = "";
+    }
+}
+
+function quizz() {
     //initialisation
+    if (actif) { reinit(); }
+    actif = true;
     start = Date.now();
     i = 0;
     reponse = "";
@@ -89,9 +94,9 @@ function quizz()
     choisirPays(); //choisi un pays au hasard dans "pays"
     noteCode = Math.floor(Math.random() * 7); // noteCode est mtn un nombre entre 0 et 6
     defRep();
-    
-    question = "l'équivalent de " + pays[noteCode] + " : "; // chois du message
-    document.getElementById("q" + i).innerHTML = question; // affiche la question
+
+    question = "l'équivalent de " + pays[noteCode] + " : "; // choix du message
+    document.getElementById("p" + i).innerHTML = question; // affiche la question
 
     window.addEventListener('keydown', traitTouche, false);
 }
