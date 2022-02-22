@@ -1,5 +1,6 @@
 const FR = ['do', 're', 'mi', 'fa', 'sol', 'la', 'si'];
 const EN = ['c', 'd', 'e', 'f', 'g', 'a', 'b'];
+const CarSpec = ['Tab', 'Control', 'Shift','Alt', 'AltGraph', 'Dead', 'Insert', 'CapsLock'];
 const NB_QUESTION = 10;
 
 let reponse;
@@ -23,7 +24,7 @@ function traitTouche(e) {
         reponse = reponse.slice(0, -1); // suprime la dernière lettre
         document.getElementById("p" + i).innerHTML = question + reponse;
     }
-    else {
+    else if (!(CarSpec.includes(e.key))){
         reponse += e.key;
         document.getElementById("p" + i).innerHTML += e.key; // affiche la réponse
     }
