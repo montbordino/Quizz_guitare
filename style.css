@@ -1,11 +1,29 @@
-:root {
+:root 
+{
     --main-bg-color: rgb(250,60,80);
-  }
+    --validation: rgb(150, 255, 109);
+}
 
+/*
+body
+{
+    background-color: black;
+}
 
+.grid > div{
+    background-color: white;
+}
+*/
+
+.grid
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+  
 .valide
 {
-    background: rgb(150, 255, 109);
+    background: var(--validation);
     padding: 10px;
     border-radius: 4px;
     width: 170px;
@@ -17,6 +35,7 @@ h1
     color: white;
     padding: 10px;
     text-align: center;
+    border-radius: 4px;
 }
 
 button
@@ -37,7 +56,6 @@ button:hover
 
 #resultat
 {
-    display: inline;
     border-radius: 4px;
     padding: 10px;
 }
