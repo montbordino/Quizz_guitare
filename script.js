@@ -1,6 +1,6 @@
 const FR = ['do', 're', 'mi', 'fa', 'sol', 'la', 'si'];
 const EN = ['c', 'd', 'e', 'f', 'g', 'a', 'b'];
-const CarSpec = ['Tab', 'Control', 'Shift','Alt', 'AltGraph', 'Dead', 'Insert', 'CapsLock'];
+const CarSpec = ['Tab', 'Control', 'Shift','Alt', 'AltGraph', 'Dead', 'Insert', 'CapsLock', 'Meta'];
 const NB_QUESTION = 10;
 
 let reponse;
@@ -70,6 +70,7 @@ function verifV() {
 
             question = "l'équivalent de " + pays[noteCode] + " : "; // choix du message
             document.getElementById("p" + i).innerHTML = question; // affiche la question
+            document.getElementById("p" + i).className = "question";
             reponse = "";
         }
     }
@@ -100,6 +101,7 @@ function quizz() {
 
     question = "l'équivalent de " + pays[noteCode] + " : "; // choix du message
     document.getElementById("p" + i).innerHTML = question; // affiche la question
+    document.getElementById("p" + i).className = "question";
 
     window.addEventListener('keydown', traitTouche, false);
 }

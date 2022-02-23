@@ -1,55 +1,78 @@
 :root 
 {
-    --main-bg-color: rgb(250,60,80);
+    --main-color: #010220;
+    --items: #030c3d;
     --validation: rgb(150, 255, 109);
+    --coul-question: rgb(156, 156, 156);
 }
 
-/*
-body
-{
-    background-color: black;
-}
 
 .grid > div{
-    background-color: white;
+    border-radius: 4px;
+    border-width: 10px;
+    border-color: black;
+    background-color: var(--items);
+    margin: 2%;
+    height: 82vh;
 }
-*/
+
+body
+{
+    background-color: var(--main-color);
+    color: white;
+}
 
 .grid
 {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
-  
-.lecon
+
+p
 {
-    background-color: var(--main-bg-color);
+    margin-left: 10px;
+    font-size: 1,6em;
+}
+  
+#lecon
+{
+    background-color: var(--items);
     border-radius: 15px;
     width: 50vh;
     text-align: center;
     padding: 5px;
 }
 
-.valide
+.question, .valide
 {
-    background: var(--validation);
     padding: 10px;
     border-radius: 4px;
     width: 170px;
 }
 
+.question
+{
+    background-color: var(--coul-question);
+}
+
+.valide
+{
+    background-color: var(--validation);
+}
+
 h1
 {
-    background-color: var(--main-bg-color);
-    color: white;
+    background-color: var(--items);
     padding: 10px;
+    margin: 0 1% 0 1% ;
     text-align: center;
     border-radius: 4px;
 }
 
 button
 {
-    background-color: var(--main-bg-color);
+    margin: 10px 0 0 10px;
+    background-color: var(--main-color);
     color: white;
     transition-duration: 0.4s;
     border-radius: 4px;
@@ -67,5 +90,5 @@ button:hover
 {
     border-radius: 4px;
     padding: 10px;
-    background-color: var(--main-bg-color);
+    background-color: var(--coul-question);
 }
