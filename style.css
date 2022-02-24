@@ -25,13 +25,15 @@ body
     color: white;
 }
 
+
+/**************** GRILLES ****************/
+
 .grid > div{
-    border-radius: 4px;
+    border-radius: 10px;
     border-width: 10px;
-    border-color: black;
     background-color: var(--items);
-    margin: 2%;
-    height: 82vh;
+    margin: 2% 2% 0 2%;
+    height: 87vh;
     text-align: center;
 }
 
@@ -51,10 +53,40 @@ body
     grid-template-columns: 1fr 1fr;
 }
 
-p
+/**************** BOUTON ****************/
+
+button
 {
-    margin-left: 10px;
-    font-size: 1,6em;
+    margin: 10px 0 0 10px;
+    background-color: var(--main-color);
+    color: white;
+    transition-duration: 0.4s;
+    border-radius: 4px;
+    width: 250px;
+    height: 75px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+button:hover
+{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+/**************** TEXTE ****************/
+
+.affiché /* pour le resultat */
+{
+    border-radius: 4px;
+    padding: 10px;
+    background-color: var(--coul-question);
+}
+
+#quizz > p
+{
+    overflow: hidden;
+    margin: 10px 0 15px 10px;
+    font-size: 1.45em;
+    width: 80%;
 }
   
 #lecon
@@ -80,26 +112,3 @@ h1
     border-radius: 4px;
 }
 
-button
-{
-    margin: 10px 0 0 10px;
-    background-color: var(--main-color);
-    color: white;
-    transition-duration: 0.4s;
-    border-radius: 4px;
-    width: 150px;
-    height: 50px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-}
-
-button:hover
-{
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-}
-
-.affiché
-{
-    border-radius: 4px;
-    padding: 10px;
-    background-color: var(--coul-question);
-}

@@ -1,6 +1,7 @@
 const FR = ['do', 're', 'mi', 'fa', 'sol', 'la', 'si'];
 const EN = ['c', 'd', 'e', 'f', 'g', 'a', 'b'];
-const CarSpec = ['Tab', 'Control', 'Shift','Alt', 'AltGraph', 'Dead', 'Insert', 'CapsLock', 'Meta'];
+const CarSpec = ['Tab', 'Control', 'Shift','Alt', 'AltGraph',
+                 'Dead', 'Insert', 'CapsLock', 'Meta', 'MediaPlayPause'];
 const NB_QUESTION = 10;
 
 let reponse;
@@ -19,9 +20,13 @@ let temps;
 
 let i;
 
-function traitTouche(e) {
+function traitTouche(e) { //traite la saisie de l'utilisateur
     if (e.key == "Backspace") {
         reponse = reponse.slice(0, -1); // suprime la dernière lettre
+        document.getElementById("p" + i).innerHTML = question + reponse;
+    }
+    else if (reponse.length >= 25){
+        reponse = "TROP GROS !";
         document.getElementById("p" + i).innerHTML = question + reponse;
     }
     else if (!(CarSpec.includes(e.key))){
@@ -32,7 +37,7 @@ function traitTouche(e) {
     verifV();
 }
 
-function choisirPays() {
+function choisirPays() { // choisis un pays entre FR et EN
     let paysCode = Math.floor(Math.random() * 2);
     if (paysCode === 0) {
         pays = FR;
@@ -42,7 +47,7 @@ function choisirPays() {
     }
 }
 
-function defRep() {
+function defRep() { // détermine la reponse attendue 
     if (pays == FR) {
         reponseAttendue = EN[noteCode];
     }
@@ -51,17 +56,21 @@ function defRep() {
     }
 }
 
+function finPartie() {
+    end = Date.now();
+    temps = (end - start) / 1000;
+    resultat = "bien joué, votre temps :" + temps + "s";
+    document.getElementById("resultat").innerHTML = resultat;
+    document.getElementById("resultat").className = "affiché";
+}
+
 function verifV() {
     if (reponse == reponseAttendue) {
         document.getElementById("p" + i).className = "valide";
 
         i++;
         if (i >= 10) {
-            end = Date.now();
-            temps = (end - start) / 1000;
-            resultat = "bien joué, votre temps :" + temps + "s";
-            document.getElementById("resultat").innerHTML = resultat;
-            document.getElementById("resultat").className = "affiché";
+            finPartie();
         }
         else {
             choisirPays(); //choisi un pays au hasard dans "pays"
