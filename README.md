@@ -4,7 +4,6 @@
 
 Ce site permet d'apprendre la traduction des notes de musique du français à l'anglais.
 Il a pour but de m'entrainer à la programmation HTML/CSS/JavaScript.
----
 
 ## Ce que j'ai appris
 
