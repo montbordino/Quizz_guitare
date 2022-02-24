@@ -6,8 +6,8 @@ const NB_QUESTION = 10;
 
 let reponse;
 let question;
-let resultat;
 let reponseAttendue;
+let message;
 
 let actif = false;
 
@@ -59,9 +59,14 @@ function defRep() { // détermine la reponse attendue
 function finPartie() {
     end = Date.now();
     temps = (end - start) / 1000;
-    resultat = "bien joué, votre temps :" + temps + "s";
-    document.getElementById("resultat").innerHTML = resultat;
-    document.getElementById("resultat").className = "affiché";
+    message = "bien joué !";
+    document.getElementById("r1").innerHTML = message;
+    document.getElementById("r1").className = "affiché";
+
+    message = "Votre Temps: "+ temps + " s";
+    document.getElementById("r2").innerHTML = message;
+    document.getElementById("r2").className = "affiché";
+
 }
 
 function verifV() {
@@ -114,19 +119,3 @@ function quizz() {
 
     window.addEventListener('keydown', traitTouche, false);
 }
-
-/*
-
-// pour ecrire du texte
-document.getElementById("question" + i).innerHTML = ecrit + " | ";
-
-// pour saisir du texte
-window.addEventListener('keydown', (event) => {
-
-    if (event.key == "r")
-    {
-        color = "red";
-    }
-
-})
-*/

@@ -6,19 +6,6 @@
     --coul-question: rgb(156, 156, 156);
 }
 
-.question, .valide
-{
-    padding: 10px;
-    border-radius: 4px;
-    width: 170px;
-    color: black;
-}
-
-.question
-{
-    background-color: var(--coul-question);
-}
-
 body
 {
     background-color: var(--main-color);
@@ -74,11 +61,30 @@ button:hover
 
 /**************** TEXTE ****************/
 
+.question, .valide
+{
+    padding: 10px;
+    border-radius: 4px;
+    width: 170px;
+    color: black;
+}
+
+.question
+{
+    border: 1px solid blanchedalmond ;
+    background-color: var(--coul-question);
+}
+
 .affiché /* pour le resultat */
 {
+    border: 1px solid blanchedalmond ;
     border-radius: 4px;
     padding: 10px;
-    background-color: var(--coul-question);
+    margin: 15px 0 0 60px;
+    background-color: var(--main-color);
+    width: 230px;
+    text-align: center;
+    vertical-align: text-top;
 }
 
 #quizz > p
@@ -88,7 +94,7 @@ button:hover
     font-size: 1.45em;
     width: 80%;
 }
-  
+
 #lecon
 {
     background-color: var(--items);
