@@ -1,6 +1,6 @@
 const FR = ['do', 're', 'mi', 'fa', 'sol', 'la', 'si'];
 const EN = ['c', 'd', 'e', 'f', 'g', 'a', 'b'];
-const CarSpec = ['Tab', 'Control', 'Shift','Alt', 'AltGraph',
+const CarSpec = ['Tab', 'Control', 'Shift','Alt', 'AltGraph', 'Enter', 
                  'Dead', 'Insert', 'CapsLock', 'Meta', 'MediaPlayPause'];
 const NB_QUESTION = 10;
 
@@ -72,7 +72,6 @@ function finPartie() {
 function verifV() {
     if (reponse == reponseAttendue) {
         document.getElementById("p" + i).className = "valide";
-
         i++;
         if (i >= 10) {
             finPartie();
@@ -92,12 +91,11 @@ function verifV() {
 
 function reinit() {
     window.removeEventListener('keydown', traitTouche, false);
+    document.getElementById("r1").className = "caché";
+    document.getElementById("r2").className = "caché";
     for (let n = NB_QUESTION - 1; n >= 0; n--) {
         document.getElementById("p" + n).innerHTML = "";
         document.getElementById("p" + n).className = "None";
-
-        document.getElementById("resultat").innerHTML = "";
-        document.getElementById("resultat").className = "None";
     }
 }
 

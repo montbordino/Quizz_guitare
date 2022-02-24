@@ -75,6 +75,12 @@ button:hover
     background-color: var(--coul-question);
 }
 
+.caché
+{
+    color: transparent;
+    background-color: transparent;
+}
+
 .affiché /* pour le resultat */
 {
     border: 1px solid blanchedalmond ;
