@@ -3,7 +3,6 @@
     --main-color: #010220;
     --items: #030c3d;
     --validation: rgb(150, 255, 109);
-    --coul-question: rgb(156, 156, 156);
 }
 
 body
@@ -66,13 +65,19 @@ button:hover
     padding: 10px;
     border-radius: 4px;
     width: 170px;
+}
+
+.valide
+{
+    background-color: var(--validation);
     color: black;
 }
+
 
 .question
 {
     border: 1px solid blanchedalmond ;
-    background-color: var(--coul-question);
+    background-color: var(--main-color);
 }
 
 .caché
@@ -108,11 +113,6 @@ button:hover
     width: 50vh;
     text-align: center;
     padding: 5px;
-}
-
-.valide
-{
-    background-color: var(--validation);
 }
 
 h1
